@@ -34,7 +34,7 @@ module.exports = function(grunt) {
           }
         });
 
-        svgfit.convert(src, f.orig.dest).then(function(){
+        svgfit.convert(src, f.dest).then(function(){
           callback();
         });
       },
