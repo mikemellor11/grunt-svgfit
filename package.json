@@ -1,7 +1,7 @@
 {
   "name": "grunt-svgfit",
   "description": "Renders then saves svg files to their exact bounds",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/mikemellor11/grunt-svgfit.git",
   "author": {
     "name": "Mike Mellor",
@@ -27,7 +27,7 @@
     "test": "grunt test"
   },
   "dependencies":{
-    "svgfit": "0.3.0",
+    "svgfit": "0.4.0",
     "async": "1.5.0"
   },
   "devDependencies": {

@@ -11,6 +11,7 @@
 module.exports = function(grunt) {
   var svgfit = require('svgfit');
   var async = require("async");
+  var path = require("path");
 
   grunt.registerMultiTask('svgfit', 'Renders then saves svg files to their exact bounds', function() {
     var options = this.options({
@@ -23,25 +24,25 @@ module.exports = function(grunt) {
 
     var done = this.async();
 
-    async.each(this.files,
-      function(f, callback){
-        var src = f.src.filter(function(filepath) {
-          if (!grunt.file.exists(filepath)) {
-            grunt.log.warn('Source file "' + filepath + '" not found.');
-            return false;
-          } else {
-            return true;
-          }
-        });
+    var tempSrc = [];
+    var tempDest = [];
 
-        svgfit.convert(src, f.dest).then(function(){
-          callback();
-        });
-      },
-      function(err){
-        done();
-      }
-    );
+    this.files.forEach(function(d, i){
+      d.src.forEach(function(d){
+        tempSrc.push(path.normalize(d));
+      });
+
+      tempDest.push(path.normalize(d.dest));
+    });
+
+    if(tempDest.length <= 1){ // This should be changed in svg fit really, array with a single object currently fails as it's not a string
+      tempDest = tempDest[0];
+    }
+
+    svgfit.convert(tempSrc, tempDest).then(function(msg){
+      grunt.log.ok(msg.join('\n'))
+      done();
+    });
   });
 
 };

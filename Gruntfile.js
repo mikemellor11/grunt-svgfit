@@ -30,16 +30,34 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     svgfit: {
-      default_options: {
-        options: {
-        },
+      expand: {
         files: [
           {
             expand: true,
             cwd: 'test/svg/',
             src: ['*.svg'],
-            dest: 'test/fitted/',
+            dest: 'tmp/expand/',
+          },
+          {
+            expand: true,
+            cwd: 'test/svg/',
+            src: ['*.svg'],
+            dest: 'tmp/expand2/',
           }
+        ]
+      },
+      compact: {
+        src: ['test/svg/*.svg'],
+        dest: 'tmp/compact/'
+      },
+      fileObject: {
+        files: {
+          'tmp/fileObject/test.svg': ['test/svg/search.svg']
+        }
+      },
+      fileArray: {
+        files: [
+          {src: ['test/svg/search.svg'], dest: 'tmp/fileArray/'}
         ]
       }
     },
@@ -61,7 +79,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the ".tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'svgfit'/*, 'nodeunit'*/]);
+  grunt.registerTask('test', ['clean', 'svgfit', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
