@@ -1,6 +1,6 @@
-# grunt-svgfit
+# grunt-svgfit [![Build Status](https://travis-ci.org/mikemellor11/grunt-svgfit.svg?branch=master)](https://travis-ci.org/mikemellor11/grunt-svgfit)
 
-> Renders then saves svg files to their exact bounds
+> Crops the source svg to it's artwork bounds
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`

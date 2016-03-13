@@ -65,8 +65,27 @@ module.exports = function(grunt) {
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js']
-    }
+    },
 
+
+    bump: {
+      options: {
+        files: ['package.json'],
+        commit: true,
+        commitMessage: 'Release v%VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'Version %VERSION%',
+        push: true,
+        pushTo: 'origin',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
+        globalReplace: false,
+        prereleaseName: false,
+        metadata: '',
+        regExp: false
+      }
+    }
   });
 
   // Actually load this plugin's task(s).
@@ -79,7 +98,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the ".tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'svgfit', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'svgfit', 'nodeunit', 'bump']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
