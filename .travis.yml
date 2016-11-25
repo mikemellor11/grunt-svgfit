@@ -3,7 +3,7 @@ node_js:
   - "5"
   - "4"
   - "0.10"
-  - "iojs"
+  - "stable"
   - "node"
 before_install:
   - npm install -g grunt-cli

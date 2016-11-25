@@ -39,7 +39,7 @@ module.exports = function(grunt) {
       tempDest = tempDest[0];
     }
 
-    svgfit.convert(tempSrc, tempDest).then(function(msg){
+    svgfit.fit(tempSrc, tempDest).then(function(msg){
       grunt.log.ok(msg.join('\n'));
       done();
     });
