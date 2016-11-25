@@ -1,7 +1,7 @@
 {
   "name": "grunt-svgfit",
   "description": "Crops the source svg to it's artwork bounds",
-  "version": "0.6.3",
+  "version": "1.0.0",
   "homepage": "https://github.com/mikemellor11/grunt-svgfit.git",
   "author": {
     "name": "Mike Mellor",
