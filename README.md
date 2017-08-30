@@ -80,6 +80,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Pulling svg's as part of a work process and they weren't tight to their bounds meaning they sometimes displayed strangely in the browser, wanted a pre process way of setting them to their exact bounds.
 
 ## Release History
+* 2.0.0 - Bumped svgfit v2.0.0
 * 1.0.0 - Phantomjs updated to v2
 * 0.5.0 - Fixed cross platform paths / Single async call no matter how many sources
 * 0.2.0 - Fixed async calls
